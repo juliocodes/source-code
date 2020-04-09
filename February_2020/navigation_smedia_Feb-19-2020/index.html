@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vertical Social media nav</title>
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="social-nav">
+        <div class="nav-toggler"><i class="fas fa-bars"></i></div>
+        <a href="#" class="icon-link facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="icon-link twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="icon-link google-plus"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="icon-link dribbble"><i class="fab fa-dribbble"></i></a>
+        <a href="#" class="icon-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+    </nav>
+
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+<script>
+    let socialNav = document.querySelector('.social-nav');
+    let navToggler = document.querySelector('.nav-toggler');
+
+    navToggler.addEventListener('click', function () {
+        socialNav.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

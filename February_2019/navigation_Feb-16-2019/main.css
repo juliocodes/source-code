@@ -1,0 +1,244 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: Play, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #eee;
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    transform: scaleX(0);
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.menu {
+    padding: 2rem 2.5rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: #fff;
+    z-index: 9;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none;
+}
+
+/*Separeted this to correct a firefox bug*/
+.bar{
+    position: absolute;
+    width: 3rem;
+    height: 2px;
+    background-color: #8744ff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.bar::before,
+.bar::after {
+    content: "";
+    position: absolute;
+    width: 3rem;
+    height: 2px;
+    background-color: #8744ff;
+    margin: auto;
+    transition: all 650ms;
+}
+/*-----*/
+/*Reduced the spacing from 2rem to 1rem*/
+.bar::before {
+    top: -1rem;
+}
+.bar::after {
+    top: 1rem;
+}
+
+.open .bar {
+    background-color: transparent;
+}
+
+.open .bar::before {
+    transform: rotate(45deg);
+}
+.open .bar::after {
+    transform: rotate(-45deg);
+}
+
+.open .bar::before,
+.open .bar::after {
+    top: 0;
+}
+
+nav {
+    height: 6rem;
+    width: 100%;
+    line-height: 6rem;
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.brand {
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #8744ff;
+    padding: 0 1rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    color: #8744ff;
+    margin-right: 2rem;
+    padding: 0 1rem;
+    display: block;
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin: top;
+    transition: transform 250ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
+}
+
+.nav-link:hover {
+    transform: rotateX(90deg);
+}
+
+.nav-item:last-child .nav-link {
+    margin-right: 0;
+}
+
+.nav-link::after {
+    background-color: #8744ff;
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    padding: inherit;
+    color: #fff;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+
+.nav-item {
+    animation: down 1s forwards;
+}
+
+/*---ANIMATIONS---*/
+@keyframes up {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        tranform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes down {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        tranform: translateY(0);
+        opacity: 1;
+    }
+}
+/*---END ANIMATIONS---*/
+
+/*---responsiveness---*/
+@media screen and (max-width: 768px) {
+    .brand {
+        margin: 0 auto;
+        animation: initial;
+        border-radius: 100%;
+        width: 10rem;
+        height: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header {
+        perspective: 75rem;
+        overflow: hidden;
+    }
+
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30rem;
+        height: 100vh;
+        line-height: initial;
+        flex-direction: column;
+        box-shadow: none;
+        text-align: center;
+        transform: rotateY(180deg);
+        transform-origin: top left;
+        transition: transform 650ms cubic-bezier(0.55, 0.55, 0.675, 0.19);
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: -5rem;
+    }
+
+    .nav-item {
+        animation: initial;
+    }
+
+    .nav-link {
+        margin: 2rem 0;
+    }
+
+    /*Removes the hover effect*/
+    .nav-link:hover {
+        transform: rotateX(0);
+    }
+
+    /*What you originally had: header .open nav - These must be chained for it to work (header.nav)*/
+    header.open nav {
+        transform: rotateY(0);
+    }
+
+    .menu {
+        display: block;
+    }
+
+    /*What you originally had: .overlay .open - These must be chained for it to work (.overlay.nav)*/
+    .overlay.open {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}

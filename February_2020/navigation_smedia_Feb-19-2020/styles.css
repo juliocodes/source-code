@@ -1,0 +1,82 @@
+/*Basic reset of default styles*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*Set to 10px for the use of REM units which are relative to the root*/
+/*Makes the math a lot simpler*/
+html{
+    font-size: 10px;
+}
+
+.social-nav{
+    position: fixed;
+    top: 50%;
+    left: -4rem;
+    transform: translateY(-50%);
+    z-index: 9999;
+    transition: left .5s;
+}
+
+.nav-toggler{
+    position: absolute;
+    cursor: pointer;
+    background-color: #3b5998;
+    font-size: 2rem;
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    top: 0;
+    right: -3rem;
+    color: #fff;
+}
+
+.icon-link{
+    display: flex;
+    width: 5rem;
+    height: 5rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    transition: background-color .5s;
+}
+
+.nav-toggler i,
+.icon-link i{
+    margin: auto;
+}
+
+.icon-link.facebook{
+    background-color: #3b5998;
+}
+
+.icon-link.twitter{
+    background-color: #1da1f2;
+}
+
+.icon-link.google-plus{
+    background-color: #dd4b39;
+}
+
+.icon-link.dribbble{
+    background-color: #dd4c89;
+}
+
+.icon-link.linkedin{
+    background-color: #0077b5;
+}
+
+.icon-link:hover{
+    background-color: #151515;
+}
+
+.social-nav.active{
+    left: 0;
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+}
+
