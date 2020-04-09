@@ -1,0 +1,101 @@
+@import "https://fonts.googleapis.com/css?family=Oswald";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: "Oswald", Arial, sans-serif;
+    color: #fff;
+}
+
+.video-container{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#video{
+    object-fit: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.video-container::after{
+    content: " ";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .5);
+    z-index: 1;
+}
+
+.cta{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 15;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cta h1{
+    font-size: 8rem;
+    font-weight: 100;
+    margin-bottom: 3rem;
+    line-height: 1;
+}
+
+.cta-btn{
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 1rem 5rem;
+    font-size: 1.5rem;
+    transition: all 1s;
+}
+
+.cta-btn:hover{
+    background-color: rgba(255, 69, 0,.4);
+}
+
+
+.s1,
+.s2{
+    padding-top: 5rem;
+    height: 100vh;
+    color: orangered;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+.s2{
+    background-color: #333;
+}
+
+@media screen and (min-width: 800px) {
+    .cta h1{
+        font-size: 12rem;
+    }
+
+    .cta-btn{
+        font-size: 2rem;
+    }
+}
+
