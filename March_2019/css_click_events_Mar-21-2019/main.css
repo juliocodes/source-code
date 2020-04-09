@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+#mycheckbox{
+    display: none;
+}
+
+.menu-toggler{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 5rem;
+    height: 5rem;
+    background-color: #ff4b81;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    z-index: 1000;
+    outline: none;
+}
+
+.menu-toggler > i{
+    font-size: 2rem;
+    color: #fff;
+    margin: auto;
+}
+
+.main-nav{
+    width: 25rem;
+    height: 100vh;
+    position: fixed;
+    background-color: #ff4b81;
+    text-align: center;
+    top: 0;
+    left: -25rem;
+    display: flex;
+    transition: all 650ms;
+}
+
+.main-nav ul{
+    margin: auto;
+    list-style: none;
+}
+
+.nav-item{
+    margin: 2.5rem 0;
+}
+
+.nav-link{
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-link:hover{
+    color: #d7d7d7;
+
+}
+
+#mycheckbox:checked + .main-nav{
+    left: 0;
+}
