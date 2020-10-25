@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #000;
+}
+
+.hamburger-menu{
+    width: 3rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.line{
+    display: block;
+}
+
+.line::before,
+.line::after{
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 4px;
+    transition: all .2s;
+}
+
+.line::before{
+    margin-bottom: 1.6rem;
+    box-shadow: 0 1rem 0 #fff;
+}
+
+#toggle{
+    display: none;
+}
+
+#toggle:checked  ~ .hamburger-menu .line::before {
+    box-shadow: 0 0 0 #fff;
+    transform: translateY(1rem) rotate(45deg);
+}
+
+#toggle:checked  ~ .hamburger-menu .line::after {
+    transform: translateY(-1rem) rotate(-45deg);
+}
+
+.nav{
+    min-height: 100vh;
+    background-color: #191818;
+    padding: 5rem 2.5rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .5s;
+}
+
+#toggle:checked ~ .nav{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav-item{
+    list-style: none;
+    line-height: 2;
+}
+
+.nav-link{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "brother-1816", sans-serif;
+    position: relative;
+}
+
+.nav-link::before{
+    content: "";
+    background-image: linear-gradient(90deg, rgb(225, 16, 250) 0%, rgba(128,29,253,1) 50%);
+    width: calc(100% + 2rem);
+    height: .5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(0);
+    transform-origin: left;
+    transition: transform .5s;
+}
+
+.nav-link:hover::before{
+    transform: translate(-50%, -50%) scaleX(1);
+}
+
+svg{
+    display: none;
+}
+
+@media screen and (min-width: 768px){
+    .hamburger-menu{
+        top: 5rem;
+        right: 5rem;
+    }
+
+    .nav{
+        padding: 5rem;
+    }
+
+    .nav-item{
+        line-height: 1.2;
+    }
+
+    .nav-link{
+        font-size: 8rem;
+    }
+
+    .nav-link::before{
+        width: calc(100% + 2.5rem);
+        height: 2rem;
+    }
+}
+
+@media screen and (min-width: 1600px){
+
+    .nav{
+        padding: 10rem 5rem;
+    }
+
+    .nav-link{
+        font-size: 19rem;
+    }
+
+    .nav-link::before{
+        width: calc(100% + 5rem);
+        height: 4rem;
+        filter: url("#noise");
+    }
+}
