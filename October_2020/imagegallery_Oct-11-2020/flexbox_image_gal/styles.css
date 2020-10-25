@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.gallery-wrapper{
+    height: 100vh;
+    display: flex;
+}
+
+.gallery-item{
+    display: flex;
+    flex: 1;
+    padding: 2.5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    transition: flex .5s ease-in;
+}
+
+.gallery-item::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    z-index: -1;
+    transition: background-color .5s;
+}
+
+
+.gallery-item:hover:after{
+    background-color: rgba(0,0,0,.5);
+}
+
+.gallery-item:hover{
+    flex: 5;
+}
+
+.item-1{
+    background-image: url("./images/image-1.jpg");
+}
+
+.item-2{
+    background-image: url("./images/image-2.jpg");
+}
+
+.item-3{
+    background-image: url("./images/image-3.jpg");
+}
+
+.item-4{
+    background-image: url("./images/image-4.jpg");
+}
+
+.item-5{
+    background-image: url("./images/image-5.jpg");
+}
+
+.description-wrapper{
+    text-transform: uppercase;
+    align-self: flex-end;
+    overflow: hidden;
+}
+
+.name{
+    font-size: 8rem;
+    background-color: #fff;
+    padding: 0 1rem;
+    transform: translateY(-100%);
+}
+
+.position-title{
+    display: inline-block;
+    font-size: 2rem;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 1px 1rem rgba(0,0,0,.2);
+    transform: translateY(100%);
+}
+.name,
+.position-title{
+    transition: transform .3s .5s;
+}
+
+.gallery-item:hover .name,
+.gallery-item:hover .position-title{
+    transform: translateY(0);
+}
+
+.gallery-item:not(:hover) .name,
+.gallery-item:not(:hover) .position-title{
+    transition-delay: 0s;
+}
+
+@media screen and (max-width: 1100px){
+    .name{
+        font-size: 4.5rem;
+    }
+
+    .position-title{
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .name{
+        font-size: 4.5rem;
+    }
+
+    .position-title{
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .gallery-wrapper{
+        flex-direction: column;
+    }
+
+    .gallery-item:hover{
+        flex: 100%;
+    }
+    
+    .name{
+        font-size: 3.5rem;
+    }
+
+    .position-title{
+        font-size: 1.4rem;
+    }
+
+}
