@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #443874;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-image: linear-gradient(to right, #5b4b8d 40%, #8274A6);
+    color: #fff;
+    font-family: sans-serif;
+    padding: 2rem;
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 110%;
+    background-color: rgba(87, 74, 149, 0.2);
+    z-index: -1;
+}
+
+.info-heading {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    font-weight: 100;
+    margin-bottom: 1rem;
+}
+
+.info-description {
+    font-size: 1.6rem;
+    margin-bottom: 4rem;
+    line-height: 1.5;
+}
+
+.info-button {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #8274A6;
+    font-size: 1.4rem;
+    padding: 1.5rem;
+    transition: all .5s;
+}
+
+.info-button:hover {
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, .4);
+}
+
+.info-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 5rem;
+    position: relative;
+}
+
+
+.info-right::before,
+.info-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.info-right::before {
+    width: 100%;
+    height: 1px;
+    transform: translateY(-50%);
+}
+
+.info-right::after {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stat-group {
+    padding: 2.5rem;
+}
+
+.stat-number {
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+    margin-bottom: .6rem;
+}
+
+.stat-name {
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+    .card {
+        max-width: 90rem;
+        display: flex;
+        align-items: center;
+        padding: 10rem;
+    }
+
+    .info-left {
+        flex: 1;
+        padding-right: 3.5rem;
+    }
+
+    .info-right {
+        flex: 1;
+        margin-top: 0;
+    }
+
+    .stat-number {
+        font-size: 4rem;
+    }
+}
