@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+section{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #111111;
+}
+
+.container{
+    max-width: 98rem;
+    padding: 1.5rem;
+    align-self: center;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 1.5rem;
+}
+
+.card{
+    font-family: sans-serif;
+    background: #262525;
+    color: #fff;
+    padding: 1.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title-large{
+    font-family: fantasy;
+    font-size: 10rem;
+    letter-spacing: .5rem;
+    color: #1d1d1d;
+    transform: translateX(7rem);
+    transition: transform 5s;
+}
+
+.card-title-small{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.card-description{
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.card-cta{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    align-self: flex-end;
+}
+
+.card:hover .card-title-large{
+    transform: translateX(-150%);
+    color: #fff;
+}
+
+.card.twitter:hover{
+    background-color: #1DA1F2;
+}
+
+.card.instagram:hover{
+    background: radial-gradient(at 20% 128%, #feda78 20%, #e23467 60%, #ac2bb3 90%);
+}
+
+.card.facebook:hover{
+    background-color: #4267B2;
+}
+
+.card.youtube:hover{
+    background-color: #ff074f;
+}
